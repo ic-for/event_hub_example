@@ -1,0 +1,6 @@
+service : {
+    "mirror" : (blob) -> ();
+    "get_requests_count" : () -> (nat64) query;
+    "get_latest" : () -> (text) query;
+    "greet": (text) -> (text) query;
+}

@@ -1,0 +1,7 @@
+service : (principal) -> {
+    "start_listening" : () -> ();
+    "get_events_received" : () -> (nat64) query;
+    "get_batches_received" : () -> (nat64) query;
+    "get_emitter" : () -> (principal) query;
+    "greet": (text) -> (text) query;
+}

@@ -1,0 +1,38 @@
+{
+  "version": 1,
+ 
+  "canisters": {
+    "emitter": {
+      "type": "custom",
+      "wasm": "target/wasm32-unknown-unknown/release/emitter_opt.wasm",
+      "build": [
+        "cargo build --target wasm32-unknown-unknown --package  emitter --release",
+        "ic-cdk-optimizer target/wasm32-unknown-unknown/release/emitter.wasm -o target/wasm32-unknown-unknown/release/emitter_opt.wasm"
+      ],
+      "candid": "src/canisters/emitter/emitter.did"
+    },
+    "listener": {
+      "type": "custom",
+      "wasm": "target/wasm32-unknown-unknown/release/listener_opt.wasm",
+      "build": [
+        "cargo build --target wasm32-unknown-unknown --package  listener --release",
+        "ic-cdk-optimizer target/wasm32-unknown-unknown/release/listener.wasm -o target/wasm32-unknown-unknown/release/listener_opt.wasm"
+      ],
+      "candid": "src/canisters/listener/listener.did"
+    }
+  },
+  
+  "defaults": {
+    "build": {
+      "packtool": "",
+      "args": ""
+    }
+  },
+  
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  }
+}
